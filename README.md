@@ -2,7 +2,11 @@
 
 ***Somap*** is a flexible, fast and scalable Self-Organizing Maps library in python. It allows you to define and run different flavors of SOMs (Kohonen, DSOM or your custom ones) on square or hexagonal 2D grid, with or without toroidal topology.
 
-![Somap](docs/som_on_mnist_hex.png) ![Somap](docs/som_on_mnist_square.png) 
+<p align="center">
+    <img src="docs/som_on_mnist_hex.png">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="docs/som_on_mnist_square.png">
+</p>
 
 # Why a new SOM library?
 
