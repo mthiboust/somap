@@ -22,7 +22,8 @@ readme = "README.md"
 license = {text = "Apache 2.0"}
 
 [project.urls]
-Homepage = "https://github.com/mthiboust/somap"
+repository = "https://github.com/mthiboust/somap"
+documentation = "https://mthiboust.github.io/somap/"
 
 [project.optional-dependencies]
 notebook = [
