@@ -51,6 +51,8 @@ dev = [
 ]
 docs = [
     "mkdocs-material>=9.4.11",
+    "mknotebooks>=0.8.0",
+    "mkdocstrings[crystal,python]>=0.24.0",
 ]
 
 [build-system]

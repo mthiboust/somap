@@ -1,4 +1,79 @@
 site_name: Somap
+site_description: Documentation for the Somap self-organizing map python library.
+site_author: Matthieu Thiboust
+site_url: https://mthiboust.github.io/somap/
+
+repo_url: https://github.com/mthiboust/somap
+repo_name: mthiboust/somap
+edit_uri: ""  # No edit button, as some of our pages are in /docs and some in /examples via symlink, so it's impossible for them all to be accurate
+
+strict: false  # Don't allow warnings during the build process
 
 theme:
   name: material
+  features:
+      - navigation.sections  # Sections are included in the navigation on the left.
+      - toc.integrate  # Table of contents is integrated on the left; does not appear separately on the right.
+      - header.autohide  # header disappears as you scroll
+  palette:
+      # Light mode / dark mode
+      # We deliberately don't automatically use `media` to check a user's preferences. We default to light mode as
+      # (a) it looks more professional, and (b) is more obvious about the fact that it offers a (dark mode) toggle.
+      - scheme: default
+        primary: white
+        accent: amber
+        toggle:
+            icon: material/weather-night
+            name: Switch to dark mode
+      - scheme: slate
+        primary: black
+        accent: amber
+        toggle:
+            icon: material/weather-sunny
+            name: Switch to light mode
+  icon:
+      repo: fontawesome/brands/github  # GitHub logo in top right
+      logo: "material/hexagon-multiple"  # Equinox logo in top left
+  favicon: "_static/favicon.png"
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+
+plugins:
+  - search  # default search plugin; needs manually re-enabling when using any other plugins
+  - mknotebooks  # Jupyter notebooks
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+          selection:
+              inherited_members: true  # Allow looking up inherited methods
+          rendering:
+              show_root_heading: true  # actually display anything at all...
+              show_root_full_path: true  # display "diffrax.asdf" not just "asdf"
+              show_if_no_docstring: true
+              show_signature_annotations: true
+              show_source: false  # don't include source code
+              members_order: source  # order methods according to their order of definition in the source code, not alphabetical order
+              heading_level: 4
+nav:
+  - 'index.md'
+  - Examples:
+    - MNIST: 'mnist.ipynb'
+    - Hyperparameter exploration: 'hyperparameters_tuning.ipynb'
+  - API:
+    - Core: 'api/core.md'
+    - SOM: 'api/som.md'
+    - Algo:
+      - Distance: 'api/distance.md'
+      - Neighborhood: 'api/neighborhood.md'
+      - Learning rate: 'api/learning_rate.md'
+      - Update: 'api/update.md'
