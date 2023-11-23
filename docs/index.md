@@ -55,10 +55,6 @@ quantization_errors = aux["metrics"]["quantization_error"]
 topographic_errors = aux["metrics"]["topographic_error"]
 ```
 
-## Documentation
-
-Not available yet.
-
 ## Citation
 
 If you found this library to be useful in academic work, then please cite:

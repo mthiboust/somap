@@ -57,7 +57,8 @@ topographic_errors = aux["metrics"]["topographic_error"]
 
 # Documentation
 
-Not available yet.
+* [Documentation website](https://mthiboust.github.io/somap/)
+* [Notebook examples](notebook/)
 
 # Citation
 
