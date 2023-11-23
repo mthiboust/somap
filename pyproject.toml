@@ -49,6 +49,9 @@ dev = [
     "pytest>=7.4.3",
     "ruff>=0.1.5",
 ]
+docs = [
+    "mkdocs-material>=9.4.11",
+]
 
 [build-system]
 requires = ["pdm-backend"]
