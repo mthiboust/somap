@@ -14,7 +14,7 @@ There are already a few open-source libraries for Self-Organizing Maps in python
 - Ability to easily customize the SOM algorithm (e.g. distance, neighborhood, learning rate and update functions).
 - Capacity to vectorize the computations over many SOMs (e.g. for distributed learning over 2D maps of SOMs).
 
-Thanks to [JAX](https://github.com/google/jax)'s `jit` and `vmap` magic functions, it turned out that performance was also significantly better compared to other frameworks. More precisely, it relies indirectly on JAX via the [Equinox](https://github.com/patrick-kidger/equinox) library that offers an easy-to-use PyTorch-like syntax.
+Thanks to [JAX](https://github.com/google/jax)'s `jit` and `vmap` magic functions, it turned out that performance was also significantly better compared to other frameworks. Under the hood, it relies indirectly on JAX via the [Equinox](https://github.com/patrick-kidger/equinox) library that offers an easy-to-use PyTorch-like syntax.
 
 # Installation
 
@@ -55,10 +55,45 @@ quantization_errors = aux["metrics"]["quantization_error"]
 topographic_errors = aux["metrics"]["topographic_error"]
 ```
 
+You can also define your custom SOM:
+```python
+import somap as smp
+from jaxtyping import Array, Float
+
+class MyCustomSomParams(smp.AbstractSomParams):
+    sigma: float | Float[Array, "..."]
+    alpha: float | Float[Array, "..."]
+
+class MyCustomSom(smp.AbstractSom):
+
+    @staticmethod
+    def generate_algo(p: MyCustomSomParams) -> smp.SomAlgo:
+        return smp.SomAlgo(
+            f_dist=smp.EuclidianDist(),
+            f_nbh=smp.GaussianNbh(sigma=p.sigma),
+            f_lr=smp.ConstantLr(alpha=p.alpha),
+            f_update=smp.SomUpdate(),
+        )
+```
+
+If you need custom distance, neighborhood, learning rate and update functions for your SOM, you can define them by inheriting from `smp.AbstractDist`, `smp.AbstractNbh`, `smp.AbstractLr` and `smp.AbstractUpdate`. See the library source code for how to do it.
+
+
 # Documentation
 
-* [Documentation website](https://mthiboust.github.io/somap/)
-* [Examples from notebooks](notebooks/)
+See: [https://mthiboust.github.io/somap/](https://mthiboust.github.io/somap/)
+
+
+# Next steps
+
+I am currently working on different ways to extend the basic SOM algorithm:
+* **Inputs**: In addition to classic bottom-up driving inputs, a SOM could also receive lateral contextual or top-down modulatory inputs.
+* **Weighted inputs**: Each data point from inputs can be weighted so that fuzzy data is weighted less for the winner selection.
+* **Dynamics**: When receiving continuous inputs in time, past activations can influence the computation of the next step.
+* **Supervized and self-supervized learning**: Top-down inputs and next inputs in time can act as teaching signal for supervized and self-supervized learning.
+* **Multi-agent system***: Each SOM is an agent of a mutli-agent system where thousands of SOMs interact with each other.
+
+Some of these features will land on an other library that depends on ***Somap***.
 
 # Citation
 
@@ -71,5 +106,3 @@ If you found this library to be useful in academic work, then please cite:
   url={https://github.com/mthiboust/somap/},
 }
 ```
-
-

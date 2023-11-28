@@ -39,6 +39,7 @@ docs = [
     "mkdocs-material>=9.4.11",
     "mknotebooks>=0.8.0",
     "mkdocstrings[crystal,python]>=0.24.0",
+    "pytkdocs-tweaks>=0.0.7",
 ]
 
 [build-system]

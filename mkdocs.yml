@@ -1,3 +1,5 @@
+# Mainly inspired by https://github.com/patrick-kidger/equinox/blob/main/mkdocs.yml
+
 site_name: Somap
 site_description: Documentation for the Somap self-organizing map python library.
 site_author: Matthieu Thiboust
@@ -42,9 +44,12 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.details  # Allowing hidden expandable regions denoted by ???
+  - pymdownx.snippets: # Include one Markdown file into another
+      base_path: docs
   - pymdownx.superfences
-
+  - toc:
+      toc_depth: 4
 
 plugins:
   - search  # default search plugin; needs manually re-enabling when using any other plugins
@@ -53,6 +58,11 @@ plugins:
       default_handler: python
       handlers:
         python:
+          setup_commands:
+              - import pytkdocs_tweaks
+              - pytkdocs_tweaks.main()
+              - import jaxtyping
+              - jaxtyping.set_array_name_format("array")
           paths: [src]
           selection:
               inherited_members: true  # Allow looking up inherited methods
