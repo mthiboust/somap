@@ -1,0 +1,3 @@
+# Plot
+
+::: somap.plot

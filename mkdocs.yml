@@ -44,6 +44,7 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
+  - admonition
   - pymdownx.details  # Allowing hidden expandable regions denoted by ???
   - pymdownx.snippets: # Include one Markdown file into another
       base_path: docs
@@ -74,16 +75,26 @@ plugins:
               show_source: false  # don't include source code
               members_order: source  # order methods according to their order of definition in the source code, not alphabetical order
               heading_level: 4
+
 nav:
   - 'index.md'
+  - 'all_of_somap.md'
   - Examples:
     - MNIST: 'mnist.ipynb'
     - Hyperparameter exploration: 'hyperparameters_tuning.ipynb'
   - API:
-    - Core: 'api/core.md'
-    - SOM: 'api/som.md'
-    - Algo:
-      - Distance: 'api/distance.md'
-      - Neighborhood: 'api/neighborhood.md'
-      - Learning rate: 'api/learning_rate.md'
-      - Update: 'api/update.md'
+    - Datasets: 'api/datasets.md'
+    - SOM:
+      - Core: 'api/core.md'
+      - SOM: 'api/som.md'
+      - Algo:
+        - Distance: 'api/distance.md'
+        - Neighborhood: 'api/neighborhood.md'
+        - Learning rate: 'api/learning_rate.md'
+        - Update: 'api/update.md'
+    - Plotting:
+      - Plot: 'api/plot.md'
+      - Backends: 'api/plot_backends.md'
+    - Save & load: 'api/serialisation.md'
+  - Misc:
+    - FAQ: 'faq.md'

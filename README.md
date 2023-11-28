@@ -11,15 +11,18 @@
 # Why a new SOM library?
 
 There are already a few open-source libraries for Self-Organizing Maps in python, of which [MiniSom](https://github.com/JustGlowing/minisom) and [SOMPY](https://github.com/sevamoo/SOMPY) seem to be the most popular. I developped ***Somap*** to overcome what I believe to be two shortcomings of existing libraries for my research on bio-inspired AI: 
-- Ability to easily customize the SOM algorithm (e.g. distance, neighborhood, learning rate and update functions).
-- Capacity to vectorize the computations over many SOMs (e.g. for distributed learning over 2D maps of SOMs).
+
+* Ability to easily customize the SOM algorithm (e.g. distance, neighborhood, learning rate and update functions).
+* Capacity to vectorize the computations over many SOMs (e.g. for distributed learning over 2D maps of SOMs).
 
 Thanks to [JAX](https://github.com/google/jax)'s `jit` and `vmap` magic functions, it turned out that performance was also significantly better compared to other frameworks. Under the hood, it relies indirectly on JAX via the [Equinox](https://github.com/patrick-kidger/equinox) library that offers an easy-to-use PyTorch-like syntax.
 
 # Installation
 
 Requires Python 3.10+ and a working installation of JAX 0.4.20+. You can follow [these instructions](https://github.com/google/jax#installation) to install JAX with the relevant hardware acceleration support.
+I am currently working on different ways to extend the basic SOM algorithm:
 
+Inputs: In addition to classic bottom-up driving inputs, a SOM could also receive lateral contextual or top-down modulatory inputs.
 Then:
 
 ```bash
@@ -87,11 +90,12 @@ See: [https://mthiboust.github.io/somap/](https://mthiboust.github.io/somap/)
 # Next steps
 
 I am currently working on different ways to extend the basic SOM algorithm:
+
 * **Inputs**: In addition to classic bottom-up driving inputs, a SOM could also receive lateral contextual or top-down modulatory inputs.
 * **Weighted inputs**: Each data point from inputs can be weighted so that fuzzy data is weighted less for the winner selection.
 * **Dynamics**: When receiving continuous inputs in time, past activations can influence the computation of the next step.
 * **Supervized and self-supervized learning**: Top-down inputs and next inputs in time can act as teaching signal for supervized and self-supervized learning.
-* **Multi-agent system***: Each SOM is an agent of a mutli-agent system where thousands of SOMs interact with each other.
+* **Multi-agent system**: Each SOM is an agent of a mutli-agent system where thousands of SOMs interact with each other.
 
 Some of these features will land on an other library that depends on ***Somap***.
 
