@@ -15,7 +15,7 @@ There are already a few open-source libraries for Self-Organizing Maps in python
 * Ability to easily customize the SOM algorithm (e.g. distance, neighborhood, learning rate and update functions).
 * Capacity to vectorize the computations over many SOMs (e.g. for distributed learning over 2D maps of SOMs).
 
-Thanks to [JAX](https://github.com/google/jax)'s `jit` and `vmap` magic functions, it turned out that performance was also significantly better compared to other frameworks. Under the hood, it relies indirectly on JAX via the [Equinox](https://github.com/patrick-kidger/equinox) library that offers an easy-to-use PyTorch-like syntax.
+Thanks to [JAX](https://github.com/google/jax)'s `jit` and `vmap` functions, it turned out that performance was also significantly better compared to other frameworks. Under the hood, it relies indirectly on JAX via the [Equinox](https://github.com/patrick-kidger/equinox) library that offers an easy-to-use PyTorch-like syntax.
 
 # Installation
 
