@@ -91,7 +91,7 @@ I am currently working on different ways to extend the basic SOM algorithm:
 * **Inputs**: In addition to classic bottom-up driving inputs, a SOM could also receive lateral contextual or top-down modulatory inputs.
 * **Weighted inputs**: Each data point from inputs can be weighted so that fuzzy data is weighted less for the winner selection.
 * **Dynamics**: When receiving continuous inputs in time, past activations can influence the computation of the next step.
-* **Supervized and self-supervized learning**: Top-down inputs and next inputs in time can act as teaching signal for supervized and self-supervized learning.
+* **Supervised and self-supervised learning**: Top-down inputs and next inputs in time can act as teaching signal for supervised and self-supervised learning.
 * **Multi-agent system**: Each SOM is an agent of a mutli-agent system where thousands of SOMs interact with each other.
 
 Some of these features will land on an other library that depends on ***Somap***.
