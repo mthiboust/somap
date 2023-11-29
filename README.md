@@ -22,9 +22,6 @@ Thanks to [JAX](https://github.com/google/jax)'s `jit` and `vmap` magic function
 Requires Python 3.10+ and a working installation of JAX 0.4.20+. You can follow [these instructions](https://github.com/google/jax#installation) to install JAX with the relevant hardware acceleration support.
 I am currently working on different ways to extend the basic SOM algorithm:
 
-Inputs: In addition to classic bottom-up driving inputs, a SOM could also receive lateral contextual or top-down modulatory inputs.
-Then:
-
 ```bash
 pip install somap
 ```
