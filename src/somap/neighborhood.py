@@ -114,3 +114,25 @@ class DsomNbh(AbstractNbh):
         return jnp.exp(
             -(distance_map**2) / (self.plasticity**2 * quantization_error**2)
         )
+
+
+class MexicanHatNbh(AbstractNbh):
+    """Mexican Hat neighborhood function."""
+
+    sigma: float | Float[Array, "..."] = 0.1
+
+    def __call__(self, distance_map: Float[Array, "x y"], _, __) -> Float[Array, "x y"]:
+        """Computes the Mexican Hat neighboring value of each grid element.
+
+        Args:
+            self:
+                self.sigma: Scale factor for the spread of the neighborhood.
+            distance_map: Distance of each element from the winner element.
+            _: Not used
+            __: Not used
+
+        Returns:
+            The Mexican Hat neighborhood distance.
+        """
+        r2_norm = distance_map**2 / self.sigma**2
+        return (1 - 0.5 * r2_norm) * jnp.exp(-r2_norm / 2)

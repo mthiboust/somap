@@ -39,7 +39,8 @@ class SomUpdate(AbstractUpdate):
         w_bu: Float[Array, "..."],
     ) -> Float[Array, "..."]:
         """Updates the prototype weights."""
-        return w_bu + (lr * nbh)[:, :, jnp.newaxis] * (input_bu - w_bu)
+        out = w_bu + (lr * nbh)[:, :, jnp.newaxis] * (input_bu - w_bu)
+        return jnp.clip(out, 0, 1.0)
 
 
 @experimental_warning

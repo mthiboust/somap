@@ -14,7 +14,7 @@ from .core import AbstractSom, AbstractSomParams, make_step, make_steps, SomAlgo
 from .distance import EuclidianDist, wdist_l2
 from .grid import distance_map
 from .learning_rate import AbstractLr, ConstantLr, DsomLr, KsomLr
-from .neighborhood import AbstractNbh, DsomNbh, GaussianNbh, KsomNbh
+from .neighborhood import AbstractNbh, DsomNbh, GaussianNbh, KsomNbh, MexicanHatNbh
 from .plot import plot, save_plot
 from .plot_backends import set_plot_backend
 from .serialisation import load, save
@@ -49,6 +49,7 @@ __all__ = [
     "DsomNbh",
     "GaussianNbh",
     "KsomNbh",
+    "MexicanHatNbh",
     "plot",
     "save_plot",
     "set_plot_backend",
