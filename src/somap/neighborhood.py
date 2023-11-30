@@ -135,4 +135,4 @@ class MexicanHatNbh(AbstractNbh):
             The Mexican Hat neighborhood distance.
         """
         r2_norm = distance_map**2 / self.sigma**2
-        return (1 - 0.5 * r2_norm) * jnp.exp(-r2_norm / 2) / (jnp.pi * self.sigma**4)
+        return (1 - 0.5 * r2_norm) * jnp.exp(-r2_norm / 2)
