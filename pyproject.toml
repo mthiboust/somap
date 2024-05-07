@@ -1,12 +1,12 @@
 [project]
 name = "somap"
-version = "0.1.0"
+version = "0.1.1"
 description = "Self-Organizing Maps in python"
 authors = [
     {name = "Matthieu Thiboust", email = "14574229+mthiboust@users.noreply.github.com"},
 ]
 dependencies = [
-    "jax==0.4.20",
+    "jax>=0.4.20",
     "equinox>=0.11.1",
     "jaxtyping>=0.2.23",
     "beartype>=0.16.4",
